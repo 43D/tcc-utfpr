@@ -1,5 +1,8 @@
 # TCC: PySocial
 
+**Build Project**
+* [Releases](https://github.com/43D/tcc-utfpr/releases)
+
 **Árvore do projeto:**
 * [Front-end UI](https://github.com/43D/tcc-utfpr/tree/PySocial-Front-end)
 * [Desktop App](https://github.com/43D/tcc-utfpr/tree/PySocial-app)
