@@ -11,7 +11,9 @@ export function MainPageIndex() {
       <div className="col">
         aside
       </div>
-      <ModalTemplate id='teste' contentElement={<TestPage />} />
+      <ModalTemplate id='post-modal' title='Criar uma nova postagem...' contentElement={<TestPage />} />
+      <ModalTemplate id='add-account' title='Adicionar uma nova conta...' contentElement={<TestPage />} />
+      <ModalTemplate id='settings' title='Configurações' contentElement={<TestPage />} />
     </>
   )
 }
