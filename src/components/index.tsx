@@ -1,10 +1,17 @@
-function MainPage() {
+import { ModalTemplate } from './components/Modal/Modal';
+import TestPage from './components/test';
+
+export function MainPageIndex() {
 
   return (
     <>
-     a
+      <div className="col-9">
+        main
+      </div>
+      <div className="col">
+        aside
+      </div>
+      <ModalTemplate id='teste' contentElement={<TestPage />} />
     </>
   )
 }
-
-export default MainPage
