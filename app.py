@@ -9,7 +9,6 @@ import webview
 from src.DB.DatabaseFactory import DatabaseFactory
 from src.Api import Api
 from src.Core.Windows.WindowsStartUp import WindowsStartUp
-from src.Socket_pros.ProcessSocket import ProcessSocket
 
 class MyHandler(FileSystemEventHandler):
     def __init__(self, func) -> None:
@@ -41,7 +40,6 @@ def run_webview(api_js, path):
 Process = multiprocessing.Process
 Queue = multiprocessing.Queue    
 webview_process = None
-socket_process = None
 path = os.path.join(os.path.expanduser('~'), 'AppData', 'Roaming', 'PySocial') 
 if not os.path.exists(path):
     os.makedirs(path)
@@ -80,17 +78,9 @@ if __name__ == "__main__":
         icon.stop()
         global webview_process
         webview_process.terminate()
-        t.stop()
         observer.stop()
-        global socket_process
-        socket_process.terminate()
         os._exit(0)
         
-    def start_socket_process():
-        global socket_process
-        socket_process = Process(target=t.loopPrint)
-        socket_process.start()
-    
     if pid_from_file is None or not is_process_running(pid_from_file):
         pid = os.getpid()
         with open(uid_file, 'a') as f:
@@ -105,9 +95,7 @@ if __name__ == "__main__":
         observer.schedule(event_handler, path='.', recursive=False)
     
         api_js = Api(evt=event)
-        t = ProcessSocket(evt=event)
         start_webview_process()
-        start_socket_process()
 
         image_path = os.path.join(db.getTagValue("path_sys")[1], 'public', 'logo', 'logo.ico')
         image = Image.open(image_path)
@@ -118,18 +106,8 @@ if __name__ == "__main__":
         icon.run()
         
         webview_process.terminate()
-        t.stop()
-        socket_process.terminate()
         
     elif not pid_from_file is None and is_process_running(pid_from_file):
         with open(open_file, 'a') as f:
             f.write(str("true"))
-        
-        
-
-
-
-
-
-
         

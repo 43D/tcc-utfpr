@@ -17,12 +17,12 @@ class WindowsStartUp:
 
     def _create_shortcut(self, wDir='', icon=''):
         desktop_path = os.path.join(os.path.expanduser('~'), 'AppData', 'Roaming', 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup') 
-        path = os.path.join(desktop_path, 'SARC Cliente - Secretaria de Administração Rocha Contabilidade e Gestão.lnk')
+        path = os.path.join(desktop_path, 'pysocial.lnk')
         print(path)
         if not os.path.isfile(path):
             print("-create")
             
-            target = os.path.join(self._project_folder, 'rocha.exe')
+            target = os.path.join(self._project_folder, 'pysocial.exe')
             shell = win32com.client.Dispatch('WScript.Shell')
             shortcut = shell.CreateShortCut(path)
             shortcut.Targetpath = target
@@ -35,7 +35,7 @@ class WindowsStartUp:
             
     def _delete_shortcut(self):
         desktop_path = os.path.join(os.path.expanduser('~'), 'AppData', 'Roaming', 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup') 
-        path = os.path.join(desktop_path, 'SARC Cliente - Secretaria de Administração Rocha Contabilidade e Gestão.lnk')
+        path = os.path.join(desktop_path, 'pysocial.lnk')
         if os.path.isfile(path):
             os.remove(path)
 
