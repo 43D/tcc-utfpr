@@ -1,14 +1,12 @@
-import os
 from src.infra.database.DatabaseFactory import DatabaseFactory
 from src.RunApp import RunApp
 from src.Api import Api
 
 def start ():
-    path = os.getcwd()
-    index = os.path.join(path, 'view', 'index.html')
+    debug = True    
     db = DatabaseFactory()
-    api = Api(db=db)
-    RA = RunApp(url=index, api=api)
+    api = Api(db=db, debug=debug)
+    RA = RunApp(api=api, debug=debug, debug_tool=debug)
     RA.run()
 
 if __name__ == '__main__':

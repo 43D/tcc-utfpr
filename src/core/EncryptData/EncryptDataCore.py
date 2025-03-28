@@ -1,8 +1,8 @@
 from cryptography.fernet import Fernet
 
-class CryptData:
-    def __init__(self):
-        self._key = "q9kpYwajN4RKCsKFAlzFMfFZd3IUJzIiu2yIcqmGHmM=".encode('utf-8')
+class EncryptDataCore:
+    def __init__(self, key: str = "q9kpYwajN4RKCsKFAlzFMfFZd3IUJzIiu2yIcqmGHmM="):
+        self._key = key.encode('utf-8')
         self._cipher_suite = Fernet(self._key)
 
     # descodificar

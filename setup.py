@@ -1,5 +1,6 @@
 import os
 from cx_Freeze import setup, Executable
+import pkg_resources
 
 def tree(src):
     return [
@@ -12,28 +13,32 @@ def lista(src):
     obj = tree(src)
     for root, files in obj:
         for file in files:
-            dest = os.path.join(src, os.path.relpath(file, src))
+            dest = os.path.join(src, os.
+            path.relpath(file, src))
             data.append((file, dest))
     return data
 
-includefiles = lista('view') + lista('public')
-print(includefiles)
-packages = ["webview", "pystray","PIL", 'psutil', 'watchdog']
+includefiles = lista('view')
+packages = ["webview", "psutil", "cryptography"]
 
 op = {
     'include_files': includefiles,
     "packages": packages,   
+    'add_to_path': True,
+    'include_msvcr': True,
 }
+
 exe = Executable(
     script="app.py",
+    icon="view\\icon.ico",
     base="Win32GUI",
-    target_name="pysocial.exe"
+    target_name="PySocial.exe"
 )
 
 setup(
     name="PySocial",
-    version="0.1.0",
-    description="Aplicativos desc...",
+    version="0.0.1",
+    description="Py Social",
     options = {'build_exe': op},
     executables=[exe],
 )

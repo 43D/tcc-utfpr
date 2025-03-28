@@ -1,8 +1,0 @@
-setuptools
-pywebview
-pystray
-pillow
-cryptography
-pywin32
-python-socketio   
-websocket-client
