@@ -1,10 +1,10 @@
 type Props = {
     id: string;
     title: string;
-    contentElement: JSX.Element;
+    contentElement: React.JSX.Element;
 }
 
-export function ModalTemplate({ id, title, contentElement }: Props) {
+export const ModalTemplate = ({ id, title, contentElement }: Props) => {
 
     return (
         <>

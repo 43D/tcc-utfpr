@@ -1,7 +1,13 @@
+import { PywebviewApiType } from '../type/pywebview/index.d';
 import { ModalTemplate } from './components/Modal/Modal';
-import TestPage from './components/test';
+import { TestPage } from './components/test';
 
-export function MainPageIndex() {
+type props = {
+  pyApi: PywebviewApiType;
+}
+
+export const MainPageIndex = ({ pyApi }: props) => {
+  pyApi;
 
   return (
     <>
