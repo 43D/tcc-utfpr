@@ -4,7 +4,7 @@ import webview
 from src.Api import Api
 
 class RunApp:
-    def __init__(self, api: Api, exe: str = "PySocial.exe", url: str = "http://localhost:5173/", debug: bool = False, debug_tool: bool = False) -> None:
+    def __init__(self, api: Api, exe: str = "PySocial.exe", url: str = "http://localhost:5173/tcc-utfpr", debug: bool = False, debug_tool: bool = False) -> None:
         self._exe = exe
         self._url = url
         self._debug = debug

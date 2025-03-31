@@ -1,6 +1,6 @@
+from src.Api import Api
 from src.infra.database.DatabaseFactory import DatabaseFactory
 from src.RunApp import RunApp
-from src.Api import Api
 
 def start ():
     debug = True    
