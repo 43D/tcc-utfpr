@@ -199,3 +199,5 @@ database.db
 db/
 app.exe
 socket.test.py
+tmp_test/*
+secrets/*.json

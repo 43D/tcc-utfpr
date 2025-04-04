@@ -21,6 +21,16 @@ class DatabaseCreator:
                 `tag` varchar(255) not null,
                 `value` varchar(255) not null,
                 UNIQUE(tag)
+            )""",
+            """CREATE TABLE IF NOT EXISTS google_tokens (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                token TEXT,
+                refresh_token TEXT,
+                token_uri TEXT,
+                client_id TEXT,
+                client_secret TEXT,
+                scopes TEXT,
+                expiry TEXT
             )"""
         ]
         
